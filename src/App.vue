@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header v-bind:title="title" />
+    <Carousel v-bind:productData="productData" />
+    <!-- <div v-for="data in productData">{{data}}</div> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header.vue";
+import Carousel from "./components/Carousel.vue";
+import json from "./data.json";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    Header,
+    Carousel
+  },
+  data() {
+    return {
+      productData: json.carouselData,
+      title: "Related Items"
+    };
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+* {
+  font-family: Roboto;
+  width: 900px;
+  margin: 0 auto;
 }
 </style>
