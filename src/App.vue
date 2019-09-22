@@ -1,21 +1,25 @@
 <template>
   <div id="app">
     <Header v-bind:title="title" />
-    <Carousel v-bind:productData="productData" />
+    <carousel>
+      <slide>Slide 1 Content</slide>
+      <slide>Slide 2 Content</slide>
+    </carousel>
     <!-- <div v-for="data in productData">{{data}}</div> -->
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import Carousel from "./components/Carousel.vue";
+import { Carousel, Slide } from "vue-carousel";
 import json from "./data.json";
 
 export default {
   name: "app",
   components: {
     Header,
-    Carousel
+    Carousel,
+    Slide
   },
   data() {
     return {
